@@ -19,5 +19,6 @@
 		<mapper resource="mappers/mapMapper.xml"/>
 		<mapper resource="mappers/itemsMapper.xml"/>
 		<mapper resource="mappers/itemMapper.xml"/>
+		<mapper resource="mappers/appMapper.xml"/>
 	</mappers>
 </configuration>
