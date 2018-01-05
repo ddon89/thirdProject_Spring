@@ -8,5 +8,21 @@
 		SELECT id, pw FROM users
 		WHERE id = #{id} AND pw = #{pw}
 	</select>
+	
+	<select id="app_getClearRecode" parameterType="User" resultType="ClearRecode">
+		select p.user_id id
+			, m.title maptitle
+			, m.titleimg mapTitleImg
+			, p.playtime clearTime
+			, m.star star
+		from playrecord p, map m
+		where p.user_id = #{id}
+		and p.map_no = m.no
+	</select>
 
+	<select id="app_userProfile" parameterType="User" resultType="string">
+		SELECT profile 
+		FROM users
+		WHERE id = #{id}
+	</select>
 </mapper>
