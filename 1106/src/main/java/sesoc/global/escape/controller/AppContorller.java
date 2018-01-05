@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import sesoc.global.escape.repository.AppRepository;
 import sesoc.global.escape.vo.App_ClearRecode;
+import sesoc.global.escape.vo.App_DirectMessage;
 import sesoc.global.escape.vo.Users;
 
 @Controller
@@ -59,6 +60,20 @@ public class AppContorller {
 		return userProfilePic;
 	}//get_userProfilePictureName
 	
-	
+	/**
+	 * 유저의 DirectMessage들을 받아온다.
+	 * @param id 유저 아이디
+	 * @return 여태까지 받은 DM
+	 */
+	@ResponseBody
+	@RequestMapping(value = "getDirectMessage", method = RequestMethod.GET)
+	public ArrayList<App_DirectMessage> app_getDirectMessage(String id){
+		System.out.println("현재 유저 : " + id);
+		Users users = new Users();
+		users.setId(id);
+		ArrayList<App_DirectMessage> dm = repo.app_getDirectMessage(users);
+		for(App_DirectMessage d : dm)System.out.println("유저에게 온 DM : " + d);
+		return dm;
+	}//get_userProfilePictureName
 	
 }//class

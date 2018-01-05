@@ -3,6 +3,7 @@ package sesoc.global.escape.dao;
 import java.util.ArrayList;
 
 import sesoc.global.escape.vo.App_ClearRecode;
+import sesoc.global.escape.vo.App_DirectMessage;
 import sesoc.global.escape.vo.Users;
 
 public interface AppDAO {
@@ -11,5 +12,7 @@ public interface AppDAO {
 	
 	ArrayList<App_ClearRecode> app_getClearRecode(Users users);
 	String app_userProfile(Users users);
+	
+	ArrayList<App_DirectMessage> app_getDirectMessage(Users users);
 
 }//interface

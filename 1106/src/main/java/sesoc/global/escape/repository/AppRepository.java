@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import sesoc.global.escape.dao.AppDAO;
 import sesoc.global.escape.vo.App_ClearRecode;
+import sesoc.global.escape.vo.App_DirectMessage;
 import sesoc.global.escape.vo.Users;
 
 @Repository
@@ -32,5 +33,10 @@ public class AppRepository {
 		AppDAO dao = sqlSession.getMapper(AppDAO.class);
 		return dao.app_userProfile(users);
 	}//getUserProfilePicture
+	
+	public ArrayList<App_DirectMessage> app_getDirectMessage(Users users){
+		AppDAO dao = sqlSession.getMapper(AppDAO.class);
+		return dao.app_getDirectMessage(users);
+	}//getDirectMessage
 	
 }//class
