@@ -14,5 +14,7 @@ public interface AppDAO {
 	String app_userProfile(Users users);
 	
 	ArrayList<App_DirectMessage> app_getDirectMessage(Users users);
+	void app_checkDM(App_DirectMessage dm);
+	int app_sendDM(App_DirectMessage dm);
 
 }//interface

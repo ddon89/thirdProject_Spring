@@ -76,4 +76,32 @@ public class AppContorller {
 		return dm;
 	}//get_userProfilePictureName
 	
+	/**
+	 * DirectMessage 를 체크한다
+	 */
+	@ResponseBody
+	@RequestMapping(value = "checkDM", method = RequestMethod.GET)
+	public void app_checkDM(int num){
+		System.out.println("안드로이드에서 DirectMessage " + num + " 번을 읽었습니다.");
+		App_DirectMessage dm = new App_DirectMessage();
+		dm.setNum(num);
+		repo.app_checkDM(dm);
+	}//DirectMessage Check
+	
+	/**
+	 * DirectMessage 를 체크한다
+	 */
+	@ResponseBody
+	@RequestMapping(value = "sendDM", method = RequestMethod.GET)
+	public String app_sendDM(String writer, String user_id, String content){
+		App_DirectMessage dm = new App_DirectMessage();
+		dm.setWriter(writer);
+		dm.setUser_id(user_id);
+		dm.setContent(content);
+		System.out.println("메시지 보내기 옴 : " + dm);
+		
+		String str = repo.app_sendDM(dm);
+		return str;
+	}//DirectMessage Check
+	
 }//class

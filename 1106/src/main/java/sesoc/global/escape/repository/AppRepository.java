@@ -39,4 +39,22 @@ public class AppRepository {
 		return dao.app_getDirectMessage(users);
 	}//getDirectMessage
 	
+	public void app_checkDM(App_DirectMessage dm){
+		AppDAO dao = sqlSession.getMapper(AppDAO.class);
+		dao.app_checkDM(dm);
+	}//checkDM
+	
+	public String app_sendDM(App_DirectMessage dm){
+		String message = null;
+		AppDAO dao = sqlSession.getMapper(AppDAO.class);
+		int result = dao.app_sendDM(dm);
+		if(result != 0){
+			message = dm.getUser_id() + " 님에게 DM을 전송하였습니다.";
+		}else {
+			message = "DM 전송에 실패하였습니다.";
+		}
+		System.out.println(message);
+		return message;
+	}//sendDM - insertDM
+	
 }//class

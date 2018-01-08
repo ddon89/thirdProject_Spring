@@ -27,8 +27,26 @@
 	</select>
 	
 	<select id="app_getDirectMessage" parameterType="User" resultType="DirectMessage">
-		select * 
+		select 
+			num,
+			writer,
+			content,
+			inputdate "date",
+			ischecked
 		from directmessage
 		where user_id = #{id}
 	</select>
+	
+	
+	<update id = "app_checkDM" parameterType="DirectMessage">
+		update directmessage
+		set isChecked = 'true'
+		where num = #{num}
+	</update>
+	
+	
+	<insert id="app_sendDM" parameterType="DirectMessage">
+		insert into directmessage values
+		(dm_seq.nextval, ${user_id}, ${writer}, ${content}, SYSDATE, 'false')
+	</insert>
 </mapper>
