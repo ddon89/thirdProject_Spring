@@ -93,15 +93,14 @@ public class AppContorller {
 	 */
 	@ResponseBody
 	@RequestMapping(value = "sendDM", method = RequestMethod.GET)
-	public String app_sendDM(String writer, String user_id, String content){
+	public int app_sendDM(String writer, String user_id, String content){
 		App_DirectMessage dm = new App_DirectMessage();
 		dm.setWriter(writer);
 		dm.setUser_id(user_id);
 		dm.setContent(content);
 		System.out.println("메시지 보내기 옴 : " + dm);
 		
-		String str = repo.app_sendDM(dm);
-		return str;
+		return repo.app_sendDM(dm);
 	}//DirectMessage Check
 	
 }//class

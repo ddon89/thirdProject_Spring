@@ -46,7 +46,9 @@
 	
 	
 	<insert id="app_sendDM" parameterType="DirectMessage">
-		insert into directmessage values
-		(dm_seq.nextval, ${user_id}, ${writer}, ${content}, SYSDATE, 'false')
+		insert into directmessage 
+		(num, user_id, writer, content, inputdate, ischecked)
+		values
+		(dm_seq.nextval, #{user_id}, #{writer}, #{content}, SYSDATE, 'false')
 	</insert>
 </mapper>
