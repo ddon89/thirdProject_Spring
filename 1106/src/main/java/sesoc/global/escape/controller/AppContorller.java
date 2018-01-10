@@ -19,7 +19,6 @@ public class AppContorller {
 	@ResponseBody
 	public String app_login(String id, String pw){
 		Users users = repo.app_login(id, pw);
-		
 		// id, pw 가 일치하는 정보가 DB에 있으면 success, 없으면 fail
 		if(users != null){
 			System.out.println(users);
