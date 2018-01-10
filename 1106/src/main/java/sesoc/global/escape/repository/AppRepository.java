@@ -19,4 +19,9 @@ public class AppRepository {
 		return dao.app_login(new Users(id, pw));
 	}//app_login
 	
+	
+	public Users app_getInfo(String id){
+		AppDAO dao = sqlSession.getMapper(AppDAO.class);
+		return dao.app_getInfo(id);
+	};
 }//class

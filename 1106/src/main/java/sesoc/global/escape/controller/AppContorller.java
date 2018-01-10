@@ -26,6 +26,16 @@ public class AppContorller {
 		}//if
 		
 		return "fail";
+				
 	}//app_logins
+	
+	@RequestMapping(value = "app_getInfo", method = RequestMethod.GET)
+	@ResponseBody
+	public Users app_login(String id){
+		Users users = repo.app_getInfo(id);
+		
+		
+		return users;
+	}//app_getInfo
 	
 }//class
