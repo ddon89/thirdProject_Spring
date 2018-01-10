@@ -13,6 +13,7 @@
 		<typeAlias type="sesoc.global.escape.vo.Items" alias="Items"/>
 		<typeAlias type="sesoc.global.escape.vo.Inventory" alias="Inventory"/>
 		<typeAlias alias="Set_Items" type="sesoc.global.escape.vo.Set_Items"/>
+		<typeAlias type="sesoc.global.escape.vo.App_TacticsGroup" alias="Tactics" />
 	</typeAliases>
 	<mappers>
 		<mapper resource="mappers/userMapper.xml"/>

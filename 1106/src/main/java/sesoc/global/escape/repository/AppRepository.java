@@ -7,46 +7,70 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import sesoc.global.escape.dao.AppDAO;
-import sesoc.global.escape.vo.App_ClearRecode;
-import sesoc.global.escape.vo.App_DirectMessage;
-import sesoc.global.escape.vo.Users;
+import sesoc.global.escape.vo.*;
 
 @Repository
 public class AppRepository {
 
-	@Autowired
-	SqlSession sqlSession;
-	
-	public Users app_login(String id, String pw) {
-		AppDAO dao = sqlSession.getMapper(AppDAO.class);
-		
-		return dao.app_login(new Users(id, pw));
-	}//app_login
-	
-	
-	public ArrayList<App_ClearRecode> app_getClearRecode(Users users){
-		AppDAO dao = sqlSession.getMapper(AppDAO.class);
-		return dao.app_getClearRecode(users);		
-	}//getClearRecord
-	
-	public String app_userProfile(Users users){
-		AppDAO dao = sqlSession.getMapper(AppDAO.class);
-		return dao.app_userProfile(users);
-	}//getUserProfilePicture
-	
-	public ArrayList<App_DirectMessage> app_getDirectMessage(Users users){
-		AppDAO dao = sqlSession.getMapper(AppDAO.class);
-		return dao.app_getDirectMessage(users);
-	}//getDirectMessage
-	
-	public void app_checkDM(App_DirectMessage dm){
-		AppDAO dao = sqlSession.getMapper(AppDAO.class);
-		dao.app_checkDM(dm);
-	}//checkDM
-	
-	public int app_sendDM(App_DirectMessage dm){
-		AppDAO dao = sqlSession.getMapper(AppDAO.class);
-		return dao.app_sendDM(dm);
-	}//sendDM - insertDM
-	
+    @Autowired
+    SqlSession sqlSession;
+
+    public Users app_login(String id, String pw) {
+        AppDAO dao = sqlSession.getMapper(AppDAO.class);
+
+        return dao.app_login(new Users(id, pw));
+    }//app_login
+
+
+    public ArrayList<App_ClearRecode> app_getClearRecode(Users users) {
+        AppDAO dao = sqlSession.getMapper(AppDAO.class);
+        return dao.app_getClearRecode(users);
+    }//getClearRecord
+
+    public String app_userProfile(Users users) {
+        AppDAO dao = sqlSession.getMapper(AppDAO.class);
+        return dao.app_userProfile(users);
+    }//getUserProfilePicture
+
+    public ArrayList<App_DirectMessage> app_getDirectMessage(Users users) {
+        AppDAO dao = sqlSession.getMapper(AppDAO.class);
+        return dao.app_getDirectMessage(users);
+    }//getDirectMessage
+
+    public void app_checkDM(App_DirectMessage dm) {
+        AppDAO dao = sqlSession.getMapper(AppDAO.class);
+        dao.app_checkDM(dm);
+    }//checkDM
+
+    public int app_sendDM(App_DirectMessage dm) {
+        AppDAO dao = sqlSession.getMapper(AppDAO.class);
+        return dao.app_sendDM(dm);
+    }//sendDM - insertDM
+
+    public Object[] app_getTacticsData() {
+        AppDAO dao = sqlSession.getMapper(AppDAO.class);
+        ArrayList<App_TacticsGroup> result = dao.app_getTacticsData();
+        App_TacticsParentGroup parent;
+        App_TacticsChildGroup child;
+        ArrayList<App_TacticsParentGroup> parentGroup = new ArrayList<>();
+        ArrayList<App_TacticsChildGroup> childGroup = new ArrayList<>();
+
+        for (int i = 0; i < result.size(); i++) {
+            // for (int j = 0; j < 3)
+            parent = new App_TacticsParentGroup(
+                    result.get(i).getListNo(),
+                    result.get(i).getTacticsTitle(),
+                    result.get(i).getReportDate());
+            child = new App_TacticsChildGroup(
+                    result.get(i).getMapTitle(),
+                    result.get(i).getTacticsWriter(),
+                    result.get(i).getTacticsContent()
+            );
+            parentGroup.add(parent);
+            childGroup.add(child);
+        }
+
+        Object[] data = new Object[] {parentGroup, childGroup};
+        return data;
+    }
 }//class

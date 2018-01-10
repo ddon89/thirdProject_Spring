@@ -51,4 +51,8 @@
 		values
 		(dm_seq.nextval, #{user_id}, #{writer}, #{content}, SYSDATE, 'false')
 	</insert>
+
+	<select id="app_getTacticsData" resultType="Tactics">
+		SELECT * FROM tacticsdata
+	</select>
 </mapper>
