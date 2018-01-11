@@ -52,10 +52,17 @@
 		(dm_seq.nextval, #{user_id}, #{writer}, #{content}, SYSDATE, 'false')
 	</insert>
 
-	<select id="app_getTacticsData" resultType="Tactics">
+	<select id="app_getTacticsData" parameterType="String" resultType="Tactics">
 		SELECT * FROM tacticsdata
+		WHERE
+		<if test="searchType == '제목'">
+			tacticsTitle LIKE '%'||#{searchWord}||'%'
+		</if>
+		<if test="searchType == '내용'">
+			tacticsContent LIKE '%'||#{searchWord}||'%'
+		</if>
 	</select>
-	
+
 	<select id="app_getMapInfo" resultType="RoomMap">
 		SELECT user_id, title, titleimg, inputdate FROM map
 	</select>

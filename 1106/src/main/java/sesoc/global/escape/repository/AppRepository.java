@@ -1,13 +1,13 @@
 package sesoc.global.escape.repository;
 
-import java.util.ArrayList;
-
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-
 import sesoc.global.escape.dao.AppDAO;
 import sesoc.global.escape.vo.*;
+
+import java.util.ArrayList;
+import java.util.HashMap;
 
 @Repository
 public class AppRepository {
@@ -47,9 +47,13 @@ public class AppRepository {
         return dao.app_sendDM(dm);
     }//sendDM - insertDM
 
-    public Object[] app_getTacticsData() {
+    public Object[] app_getTacticsData(String searchType, String searchWord) {
+        HashMap<String, String> param = new HashMap<>();
+        param.put("searchType", searchType);
+        param.put("searchWord", searchWord);
+
         AppDAO dao = sqlSession.getMapper(AppDAO.class);
-        ArrayList<App_TacticsGroup> result = dao.app_getTacticsData();
+        ArrayList<App_TacticsGroup> result = dao.app_getTacticsData(param);
         App_TacticsParentGroup parent;
         App_TacticsChildGroup child;
         ArrayList<App_TacticsParentGroup> parentGroup = new ArrayList<>();

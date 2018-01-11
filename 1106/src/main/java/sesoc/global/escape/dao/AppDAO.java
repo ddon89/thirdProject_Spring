@@ -1,6 +1,7 @@
 package sesoc.global.escape.dao;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import sesoc.global.escape.vo.App_ClearRecode;
 import sesoc.global.escape.vo.App_DirectMessage;
@@ -19,7 +20,7 @@ public interface AppDAO {
 	void app_checkDM(App_DirectMessage dm);
 	int app_sendDM(App_DirectMessage dm);
 
-	ArrayList<App_TacticsGroup> app_getTacticsData();
+	ArrayList<App_TacticsGroup> app_getTacticsData(HashMap<String, String> param);
 
 	ArrayList<RoomMap> app_getMapInfo();
 

@@ -106,8 +106,8 @@ public class AppContorller {
 
     @RequestMapping(value = "getTacticsList", method = RequestMethod.GET)
     @ResponseBody
-    public Object[] app_getTacticsList() {
-        Object[] tacticsList = repo.app_getTacticsData();
+    public Object[] app_getTacticsList(String searchType, String searchWord) {
+        Object[] tacticsList = repo.app_getTacticsData(searchType, searchWord);
         return tacticsList;
     }
     
