@@ -31,9 +31,8 @@ public class AppContorller {
 	
 	@RequestMapping(value = "app_getInfo", method = RequestMethod.GET)
 	@ResponseBody
-	public Users app_login(String id){
+	public Users app_getInfo(String id){
 		Users users = repo.app_getInfo(id);
-		
 		
 		return users;
 	}//app_getInfo

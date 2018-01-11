@@ -10,7 +10,7 @@ public class Users {
 	private String room_title;
 
 	public Users() {
-
+		
 	}
 	
 	public Users(String id, String pw){
