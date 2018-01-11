@@ -110,5 +110,16 @@ public class AppContorller {
         Object[] tacticsList = repo.app_getTacticsData();
         return tacticsList;
     }
+    
+    
+    /**
+     * MAP 테이블 정보를 모두 가져 온다.
+     * */ 
+    @RequestMapping(value = "getMapInfo", method = RequestMethod.GET)
+    @ResponseBody
+    public ArrayList<RoomMap> getMapInfo(){
+    	System.out.println();
+    	return null;
+    }//getMapInfo
 
 }//class

@@ -1,6 +1,6 @@
 package sesoc.global.escape.vo;
 
-public class RoomMap {
+public class RoomMap{
 	private int no;
 	private String user_id;
 	private String title;
