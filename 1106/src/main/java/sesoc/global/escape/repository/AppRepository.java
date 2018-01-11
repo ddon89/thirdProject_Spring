@@ -73,4 +73,11 @@ public class AppRepository {
         Object[] data = new Object[]{parentGroup, childGroup};
         return data;
     }
+
+
+	public ArrayList<RoomMap> app_getMapInfo() {
+		System.out.println("app_getMapInfo repo");
+		AppDAO dao = sqlSession.getMapper(AppDAO.class);
+		return dao.app_getMapInfo();
+	}//app_getMapInfo
 }//class

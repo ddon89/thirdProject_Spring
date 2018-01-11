@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import sesoc.global.escape.vo.App_ClearRecode;
 import sesoc.global.escape.vo.App_DirectMessage;
 import sesoc.global.escape.vo.App_TacticsGroup;
+import sesoc.global.escape.vo.RoomMap;
 import sesoc.global.escape.vo.Users;
 
 public interface AppDAO {
@@ -19,5 +20,7 @@ public interface AppDAO {
 	int app_sendDM(App_DirectMessage dm);
 
 	ArrayList<App_TacticsGroup> app_getTacticsData();
+
+	ArrayList<RoomMap> app_getMapInfo();
 
 }//interface

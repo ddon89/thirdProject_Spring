@@ -115,11 +115,12 @@ public class AppContorller {
     /**
      * MAP 테이블 정보를 모두 가져 온다.
      * */ 
-    @RequestMapping(value = "getMapInfo", method = RequestMethod.GET)
+    @RequestMapping(value = "app_getMapInfo", method = RequestMethod.GET)
     @ResponseBody
-    public ArrayList<RoomMap> getMapInfo(){
-    	System.out.println("getMapInfo IN");
-    	return null;
+    public ArrayList<RoomMap> app_getMapInfo(){
+    	System.out.println("app_getMapInfo IN");    
+    	System.out.println(repo.app_getMapInfo());
+    	return repo.app_getMapInfo();
     }//getMapInfo
 
 }//class

@@ -55,4 +55,8 @@
 	<select id="app_getTacticsData" resultType="Tactics">
 		SELECT * FROM tacticsdata
 	</select>
+	
+	<select id="app_getMapInfo" resultType="RoomMap">
+		SELECT user_id, title, titleimg, inputdate FROM map
+	</select>
 </mapper>
