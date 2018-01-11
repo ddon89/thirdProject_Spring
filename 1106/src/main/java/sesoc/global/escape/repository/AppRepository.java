@@ -70,7 +70,7 @@ public class AppRepository {
             childGroup.add(child);
         }
 
-        Object[] data = new Object[] {parentGroup, childGroup};
+        Object[] data = new Object[]{parentGroup, childGroup};
         return data;
     }
 }//class

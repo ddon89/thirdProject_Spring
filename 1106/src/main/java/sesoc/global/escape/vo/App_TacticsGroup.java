@@ -5,19 +5,19 @@ package sesoc.global.escape.vo;
  */
 
 public class App_TacticsGroup {
-    private String mapTitle;
-    private String tacticsWriter;
-    private String tacticsContent;
-
     private int listNo;
     private String tacticsTitle;
     private String reportDate;
 
+    private String mapTitle;
+    private String tacticsWriter;
+    private String tacticsContent;
+
     public App_TacticsGroup() {
     }
 
-    public App_TacticsGroup(String mapTitle, String tacticsWriter, String tacticsContent,
-                            int listNo, String tacticsTitle, String reportDate) {
+    public App_TacticsGroup(int listNo, String tacticsTitle, String reportDate,
+                            String mapTitle, String tacticsWriter, String tacticsContent) {
         this.mapTitle = mapTitle;
         this.tacticsWriter = tacticsWriter;
         this.tacticsContent = tacticsContent;
