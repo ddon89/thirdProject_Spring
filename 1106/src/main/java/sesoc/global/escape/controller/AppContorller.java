@@ -118,7 +118,7 @@ public class AppContorller {
     @RequestMapping(value = "getMapInfo", method = RequestMethod.GET)
     @ResponseBody
     public ArrayList<RoomMap> getMapInfo(){
-    	System.out.println();
+    	System.out.println("getMapInfo IN");
     	return null;
     }//getMapInfo
 
