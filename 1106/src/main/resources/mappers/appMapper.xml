@@ -64,6 +64,6 @@
 	</select>
 
 	<select id="app_getMapInfo" resultType="RoomMap">
-		SELECT user_id, title, titleimg, inputdate FROM map
+		SELECT * FROM map
 	</select>
 </mapper>

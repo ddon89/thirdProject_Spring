@@ -4,12 +4,14 @@ public class RoomMap{
 	private int no;
 	private String user_id;
 	private String title;
+	private String titleimg;
 	private String content;
 	private int rank;
 	private String theme;
 	private String abgtime;
 	private String deadtime;
 	private String inputdate;
+	private double star;
 	
 	public RoomMap() {
 	}
@@ -68,12 +70,28 @@ public class RoomMap{
 	public void setInputdate(String inputdate) {
 		this.inputdate = inputdate;
 	}
+	
+	public String getTitleimg() {
+		return titleimg;
+	}
+
+	public void setTitleimg(String titleimg) {
+		this.titleimg = titleimg;
+	}
+
+	public double getStar() {
+		return star;
+	}
+
+	public void setStar(double star) {
+		this.star = star;
+	}
 
 	@Override
 	public String toString() {
 		return "RoomMap [no=" + no + ", user_id=" + user_id + ", title=" + title + ", content=" + content + ", rank="
 				+ rank + ", theme=" + theme + ", abgtime=" + abgtime + ", deadtime=" + deadtime + ", inputdate="
-				+ inputdate + "]";
+				+ inputdate + ", star=" + star + "]";
 	}
-	
+
 }
